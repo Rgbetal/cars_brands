@@ -13,15 +13,23 @@
         <div class="max-w-7xl mx-auto flex justify-between items-center">
             <a href="{{ url('/') }}" class="text-2xl font-bold text-gray-800">Cars Heaven</a>
             <div>
-                <a href="{{ route('car-brands.index') }}"
-                    class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-md">
-                    Retour à la liste
-                </a>
+                <form method="POST" action="{{ route('logout') }}">
+                    @csrf
+                    <button class="bg-red-500 text-white px-4 py-1 rounded hover:bg-red-600">
+                        Se déconnecter
+                    </button>
+                </form>
             </div>
-        </div>
     </nav>
 
     <div class="max-w-xl mx-auto bg-white p-6 rounded shadow">
+        <div>
+            <a href="{{ route('car-brands.index') }}"
+                class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-md">
+                Retour à la liste
+            </a>
+        </div>
+
         <h1 class="text-2xl font-bold mb-6 text-center">Modifier la marque</h1>
 
         @if ($errors->any())

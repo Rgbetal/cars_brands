@@ -4,51 +4,53 @@
 <head>
     <meta charset="UTF-8">
     <title>Ajouter un Fournisseur</title>
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
-<body class="bg-gray-100 py-10">
+<body class="bg-gray-100 py-8">
 
-    <div class="max-w-2xl mx-auto bg-white shadow-lg rounded-xl p-6">
-        <h2 class="text-2xl font-bold mb-6 text-gray-800">Ajouter un Fournisseur</h2>
+    <div class="max-w-md mx-auto bg-white p-6 rounded shadow">
 
+        <!-- Bouton retour -->
+        <a href="{{ route('vehicle_suppliers.index') }}" class="inline-block text-sm text-blue-600 hover:underline mb-4">
+            ← Retour à la liste
+        </a>
+
+        <!-- Titre -->
+        <h1 class="text-xl font-bold mb-4">Ajouter un Fournisseur</h1>
+
+        <!-- Affichage des erreurs -->
         @if ($errors->any())
-            <div class="mb-4 bg-red-100 border border-red-400 text-red-700 p-4 rounded">
-                <ul class="list-disc pl-6">
+            <div class="bg-red-100 text-red-700 p-3 rounded mb-4">
+                <ul>
                     @foreach ($errors->all() as $error)
-                        <li>{{ $error }}</li>
+                        <li>- {{ $error }}</li>
                     @endforeach
                 </ul>
             </div>
         @endif
 
-        <form method="POST" action="{{ route('vehicle_suppliers.store') }}" enctype="multipart/form-data"
-            class="space-y-4">
+        <!-- Formulaire -->
+        <form method="POST" action="{{ route('vehicle_suppliers.store') }}" enctype="multipart/form-data">
             @csrf
 
-            <div>
-                <label class="block text-gray-700 font-semibold">Nom <span class="text-red-500">*</span></label>
-                <input type="text" name="name" value="{{ old('name') }}" required
-                    class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring focus:border-blue-300">
-            </div>
+            <!-- Nom -->
+            <label class="block mb-2">Nom *</label>
+            <input type="text" name="name" value="{{ old('name') }}" required
+                class="w-full mb-4 p-2 border rounded">
 
-            <div>
-                <label class="block text-gray-700 font-semibold">Téléphone</label>
-                <input type="text" name="phone" value="{{ old('phone') }}"
-                    class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring focus:border-blue-300">
-            </div>
+            <!-- Téléphone -->
+            <label class="block mb-2">Téléphone</label>
+            <input type="text" name="phone" value="{{ old('phone') }}" class="w-full mb-4 p-2 border rounded">
 
-            <div>
-                <label class="block text-gray-700 font-semibold">Photo</label>
-                <input type="file" name="photo" accept="image/*"
-                    class="w-full px-4 py-2 border rounded-lg bg-gray-50 focus:outline-none focus:ring focus:border-blue-300">
-            </div>
+            <!-- Photo -->
+            <label class="block mb-2">Photo</label>
+            <input type="file" name="photo" accept="image/*" class="w-full mb-4 p-2 border rounded bg-gray-50">
 
-            <div>
-                <button type="submit" class="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition">
-                    Enregistrer
-                </button>
-            </div>
+            <!-- Bouton -->
+            <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">
+                Enregistrer
+            </button>
         </form>
     </div>
 

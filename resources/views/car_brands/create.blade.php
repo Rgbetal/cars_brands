@@ -19,6 +19,8 @@
         <form action="{{ route('car-brands.store') }}" method="POST">
             @csrf
 
+            <a href="{{ route('car-brands.index') }}" class="inline-block mb-4 text-sm text-blue-600 hover:underline">←
+                Retour à la liste</a>
             <!-- Nom -->
             <div class="mb-4">
                 <label for="name" class="block mb-1">Nom de la marque</label>

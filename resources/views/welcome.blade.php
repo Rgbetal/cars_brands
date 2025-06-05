@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" class="scroll-smooth">
 
 <head>
     <meta charset="utf-8">
@@ -21,8 +21,7 @@
 
             <!-- Navigation -->
             <nav class="flex items-center gap-4 text-sm">
-                <a href="{{ url('/about') }}" class="font-bold text-white dark:text-gray-100">À propos de
-                    nous</a>
+                <a href="#apropos" class="font-bold text-white dark:text-gray-100">À propos de nous</a>
                 <a href="{{ url('/contact') }}" class="font-bold text-white dark:text-gray-100">Contactez-nous</a>
 
                 @guest
@@ -40,10 +39,11 @@
             </nav>
         </div>
     </header>
+
     <main
         class="flex-1 min-h-screen bg-[url('{{ asset('images/Voiture.png') }}')] bg-cover bg-center bg-no-repeat flex items-start justify-start">
 
-        <div class="text-white p-8 rounded-md ml-16 mt-60 max-w-lg space-y-4">
+        <div class="text-white p-8 rounded-md ml-16 mt-[120px] max-w-lg space-y-4">
             <h2 class="text-5xl font-bold">Offres sur roues</h2>
             <p>
                 Découvrez plus de 200 modèles de concessionnaires automobiles sur Dribbble…. Interface utilisateur / UX
@@ -56,10 +56,54 @@
         </div>
 
     </main>
+
+    <section id="apropos">
+
+        <div class="bg-black text-white min-h-screen flex items-center justify-center px-4 py-12">
+            <div class="max-w-6xl w-full grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                <!-- Image -->
+                <div class="relative">
+                    <div class="absolute top-5 left-5 w-full h-full border-4 border-red-600 z-0"></div>
+                    <img src="{{ asset('images/porsche.jpg') }}" alt="Porsche" class="relative z-10 shadow-lg" />
+                </div>
+
+                <!-- Text -->
+                <div>
+                    <h2 class="text-4xl font-bold mb-4">A PROPOS DE NOUS</h2>
+                    <div class="text-red-600 text-2xl mb-2">“</div>
+                    <p class="mb-4">
+                        Chez <strong>Cars Heaven</strong>, nous croyons que l’achat d’une voiture doit être une
+                        expérience agréable et sans stress.
+                    </p>
+                    <p class="mb-4">
+                        Avec plus de 10 ans d’expertise, nous offrons une sélection rigoureuse de véhicules de qualité,
+                        un service client personnalisé,
+                        et des solutions de financement adaptées à tous.
+                    </p>
+                    <p>
+                        Rejoignez la famille Cars Heaven et trouvez le véhicule qui vous correspond vraiment.
+                    </p>
+                    <div class="text-red-600 text-2xl">”</div>
+
+                    <!-- Social Icons -->
+                    <div class="flex space-x-4 mt-6">
+                        <a href="#" class="text-white hover:text-red-600 text-xl"><i
+                                class="fab fa-facebook"></i></a>
+                        <a href="#" class="text-white hover:text-red-600 text-xl"><i
+                                class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-white hover:text-red-600 text-xl"><i
+                                class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
     <footer class="text-center py-4 text-sm bg-black text-white">
         &copy; {{ date('Y') }} Auto Service. Tous droits réservés.
     </footer>
-
 
 </body>
 
